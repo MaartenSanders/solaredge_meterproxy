@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  solaredge_meterproxy:
+    build: .
+    image: solaredge_meterproxy
+    env_file:
+    - .env
+    restart: unless-stopped
+    container_name: solaredge_meterproxy
