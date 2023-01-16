@@ -84,11 +84,15 @@ def device(config):
     #
     # host              ip or hostname of MQTT server
     # port              port of MQTT server
+    # mqtt_user         username for mqtt
+    # mqtt_password     password for mqtt
     # keepalive         keepalive time in seconds for MQTT server
     # meterValuesTopic  MQTT topic to subscribe to to receive meter values
 
     host = config.get("host", fallback="localhost")
     port = config.getint("port", fallback=1883)
+    mqtt_user = config.get("mqtt_user", fallback=None)
+    mqtt_password = config.get("mqtt_password", fallback=None)
     keepalive = config.getint("keepalive", fallback=60)
     meterValuesTopic = config.get("meterValuesTopic", fallback="meter")
     willTopic = config.get("willTopic", fallback=None)
@@ -105,6 +109,7 @@ def device(config):
         client = mqtt.Client(userdata=topics)
         client.on_connect = on_connect
         client.on_message = on_message
+        client.username_pw_set(mqtt_user, mqtt_password)
         client.on_disconnect = on_disconnect
         if willTopic is not None:
             client.will_set(willTopic, payload=willMsg, qos=0, retain=False)
