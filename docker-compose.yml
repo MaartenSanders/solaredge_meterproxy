@@ -3,7 +3,7 @@ services:
   solaredge_meterproxy:
     build: .
     image: solaredge_meterproxy
-#    env_file:
-#    - .env
+    ports:
+     - "192.168.20.12:5502:5502"
     restart: unless-stopped
     container_name: solaredge_meterproxy
