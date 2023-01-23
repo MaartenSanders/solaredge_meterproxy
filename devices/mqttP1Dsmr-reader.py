@@ -148,10 +148,10 @@ def values(device):
     submitValues['voltage_ln']  = float(lastValues['instantaneousVoltageL1'])
     submitValues['frequency'] = 50
 
-    submitValues ['power_active'] = (float(lastValues['powerImportedActual']) * 1000) - (float(lastValues['powerExportedActual'])* 1000)
-    submitValues ['l1_power_active']= (float(lastValues['instantaneousActivePowerL1Plus']) * 1000) - (float(lastValues['instantaneousActivePowerL1Min']) * 1000)
-    submitValues ['l2_power_active']= (float(lastValues['instantaneousActivePowerL2Plus']) * 1000) - (float(lastValues['instantaneousActivePowerL2Min']) * 1000)
-    submitValues ['l3_power_active']= (float(lastValues['instantaneousActivePowerL3Plus']) * 1000) - (float(lastValues['instantaneousActivePowerL3Min']) * 1000)
+    submitValues ['power_active'] = (float(lastValues['powerImportedActual'])) - (float(lastValues['powerExportedActual']))
+    submitValues ['l1_power_active']= (float(lastValues['instantaneousActivePowerL1Plus'])) - (float(lastValues['instantaneousActivePowerL1Min']))
+    submitValues ['l2_power_active']= (float(lastValues['instantaneousActivePowerL2Plus'])) - (float(lastValues['instantaneousActivePowerL2Min']))
+    submitValues ['l3_power_active']= (float(lastValues['instantaneousActivePowerL3Plus'])) - (float(lastValues['instantaneousActivePowerL3Min']))
 
     P1Current=False
     if (P1Current):
