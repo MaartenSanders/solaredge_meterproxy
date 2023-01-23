@@ -171,8 +171,8 @@ def values(device):
 
     submitEnergy=True
     if (submitEnergy):
-        submitValues['import_energy_active'] = float(lastValues['electricityImportedT1']) + float(lastValues['electricityImportedT2'])
-        submitValues['export_energy_active'] = float(lastValues['electricityExportedT1']) + float(lastValues['electricityExportedT2'])
+        submitValues['import_energy_active'] = ( float(lastValues['electricityImportedT1']) + float(lastValues['electricityImportedT2']) ) / 1000
+        submitValues['export_energy_active'] = ( float(lastValues['electricityExportedT1']) + float(lastValues['electricityExportedT2']) ) / 1000
     #   submitValues ["l1_import_energy_active"] = lastValues['import_energy_active']
     #   submitValues ["l1_export_energy_active"] = lastValues["export_energy_active"]
         submitValues['energy_active'] =  submitValues['import_energy_active'] - submitValues['export_energy_active'] 
